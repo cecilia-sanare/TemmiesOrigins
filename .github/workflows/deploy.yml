@@ -1,0 +1,38 @@
+name: Deploy
+
+on:
+  push:
+    tags:
+      - v*
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@v3
+        with:
+          go-version: '^1.19.1' # The Go version to download (if necessary) and use.
+      - run: go install github.com/packwiz/packwiz@latest
+      - run: packwiz cf export -s client -o TemmiesOriginsClient.zip
+      - uses: actions/upload-artifact@v3
+        with:
+          name: TemmiesOriginsClient.zip
+          path: TemmiesOriginsClient.zip
+          if-no-files-found: error
+
+  deploy:
+    name: Deploy
+    if: startsWith(github.event.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/download-artifact@v3
+      - uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          prerelease: false
+          files: TemmiesOriginsClient.zip

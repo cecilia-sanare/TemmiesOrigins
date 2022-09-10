@@ -1,0 +1,13 @@
+name = "Explorer's Compass"
+filename = "ExplorersCompass-1.19.2-2.1.2-fabric.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "645fb173a3f385a82ddefff00fb8dfc5c042f2bc"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 3923907
+project-id = 491794

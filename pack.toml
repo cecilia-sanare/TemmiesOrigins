@@ -1,0 +1,16 @@
+name = "Temmie's Origins"
+author = "Cecilia Sanare"
+version = "0.1.1"
+pack-format = "packwiz:1.1.0"
+
+[index]
+file = "index.toml"
+hash-format = "sha256"
+hash = "56c000542180d778d6b6136974ce45c6c22d3089cb6a60340c184cb7b978231a"
+
+[versions]
+fabric = "0.14.9"
+minecraft = "1.19.2"
+
+[options]
+acceptable-game-versions = ["1.19.2", "1.19.1", "1.19"]

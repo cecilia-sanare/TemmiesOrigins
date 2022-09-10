@@ -1,0 +1,13 @@
+name = "You're in Grave Danger"
+filename = "youre-in-grave-danger-1.4.3.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "fd660a1f7f29dce18d4ac8ec78e094b38709ad03"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 3970353
+project-id = 544912
