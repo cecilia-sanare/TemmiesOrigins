@@ -16,12 +16,15 @@ jobs:
       - uses: actions/setup-go@v3
         with:
           go-version: '^1.19.1' # The Go version to download (if necessary) and use.
+      - name: Versioning
+        run: sed -i 's/0.0.0-semantically-released.0/${{ github.ref_name }}/g' pack.toml
       - run: go install github.com/packwiz/packwiz@latest
-      - run: packwiz cf export -o TemmiesOriginsClient.zip
+      - name: Generate Zip
+        run: packwiz cf export -o TemmiesOriginsClient-${{ github.ref_name }}.zip
       - uses: actions/upload-artifact@v3
         with:
-          name: TemmiesOriginsClient.zip
-          path: TemmiesOriginsClient.zip
+          name: TemmiesOrigins
+          path: TemmiesOriginsClient-${{ github.ref_name }}.zip
           if-no-files-found: error
 
   deploy:
@@ -31,8 +34,26 @@ jobs:
     needs: build
     steps:
       - uses: actions/download-artifact@v3
-      - uses: marvinpinto/action-automatic-releases@latest
+      - name: Changelog
+        id: changelog
+        uses: mikepenz/release-changelog-builder-action@v3.3.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          prerelease: false
-          files: TemmiesOriginsClient.zip
+          commitMode: true
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: TemmiesOrigins/TemmiesOriginsClient-${{ github.ref_name }}.zip
+          body: ${{ steps.changelog.outputs.changelog }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+      # TODO: Enable once approved
+      # - name: Upload to CurseForge
+      #   uses: henkelmax/upload-curseforge-modpack-action@v1.0.0
+      #   with:
+      #     api-token: ${{ secrets.CF_TOKEN }}
+      #     project-id: 674487
+      #     modpack-path: TemmiesOriginsClient-${{ github.ref_name }}.zip
+      #     game-version: "1.19.2"
+      #     display-name: "TemmiesOriginsClient-${{ github.ref_name }}"
+      #     release-type: "release"

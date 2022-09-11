@@ -1,6 +1,6 @@
 name = "Temmie's Origins"
 author = "Cecilia Sanare"
-version = "0.1.1"
+version = "0.0.0-semantically-released.0"
 pack-format = "packwiz:1.1.0"
 
 [index]
