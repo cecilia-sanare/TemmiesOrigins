@@ -18,9 +18,6 @@ jobs:
           go-version: '^1.19.1' # The Go version to download (if necessary) and use.
       - run: go install github.com/packwiz/packwiz@latest
       - run: packwiz cf export -o TemmiesOriginsClient.zip
-      - uses: montudor/action-zip@v1
-        with:
-          args: zip -d TemmiesOriginsClient.zip "overrides/mods/player-pronouns*.jar"
       - uses: actions/upload-artifact@v3
         with:
           name: TemmiesOriginsClient.zip
