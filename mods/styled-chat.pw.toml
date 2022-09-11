@@ -1,0 +1,13 @@
+name = "Styled Chat"
+filename = "styled-chat-1.4.1+1.19.2.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "f6b5bae450b922d4e2516386a69977ce82e7c345"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 3933665
+project-id = 493348

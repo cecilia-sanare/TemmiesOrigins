@@ -2,11 +2,11 @@ hash-format = "sha256"
 
 [[files]]
 file = ".github/workflows/deploy.yml"
-hash = "51c9639828afe710c865aab8a4eaaf6395c7c799d429f623670bfefb6f12b103"
+hash = "acb5b21cfa7711a9faa85be29730724f48b9f869c54fc933d8d2d603e4bb9bc7"
 
 [[files]]
 file = "README.md"
-hash = "0718edd4b6470762e0405fb8d963ded60bf83d06c50ea16884b0e4ec6c07ef03"
+hash = "113da76c0448bb0c40b569f51d4cea31abcaae07bf0cc60d3e4ed60ef2db0e30"
 
 [[files]]
 file = "config/NoChatReports/NCR-Client.json"
@@ -640,6 +640,21 @@ hash = "a0f5214d62d0d7332266a6378e91934dced37ec7c465d99647380fc79ee4e86c"
 metafile = true
 
 [[files]]
+file = "mods/blossomhomes.pw.toml"
+hash = "b334acf9a76ea16a2223b709ef78ec9c861c3f7d6a153bfbd1956edd562205c6"
+metafile = true
+
+[[files]]
+file = "mods/blossomlib.pw.toml"
+hash = "cd63a1765da62ceb595f11723dd56903c7f999d163a0013e4553b0ca70adcfb4"
+metafile = true
+
+[[files]]
+file = "mods/blossomtpa.pw.toml"
+hash = "d8e7c4a9b07b1710e2a9f8fc8e7a36b7929d6962acaa7bcf7005a24b827bb10a"
+metafile = true
+
+[[files]]
 file = "mods/borderless-mining.pw.toml"
 hash = "e0f6cbba2f655e4d7906d95d5c9e00837a72fa6a0c52ddadcd35de33c160f017"
 metafile = true
@@ -885,6 +900,11 @@ hash = "bee3d7866e141b2bb54fed634029e0fa36c46b518dec6a2b7a5b63d1da6ae998"
 metafile = true
 
 [[files]]
+file = "mods/player-pronouns.pw.toml"
+hash = "8c3a448518a3ffe38caf54749c2ef3442100ebfe6f116169ec8ce750043dd412"
+metafile = true
+
+[[files]]
 file = "mods/roughly-enough-items.pw.toml"
 hash = "1c7321d83c9cfa99efd897040a52f263c846ef2b60c3c9cec97ac28ab799cad0"
 metafile = true
@@ -907,6 +927,21 @@ metafile = true
 [[files]]
 file = "mods/starlight.pw.toml"
 hash = "7b110f0f87bb5f21381cc9c2338be6689219a36ef13cb34c22e745df4e6afbff"
+metafile = true
+
+[[files]]
+file = "mods/styled-chat.pw.toml"
+hash = "ab437832fc7f9f3a8c6cfbee35efecb97638213eadcdfac7d67f5104ff53805d"
+metafile = true
+
+[[files]]
+file = "mods/styled-nicknames.pw.toml"
+hash = "ddbba6dcf71823bf28d7c025d7bbc1ccd079040547f86eb0081d05a530a2dfd3"
+metafile = true
+
+[[files]]
+file = "mods/styled-player-list.pw.toml"
+hash = "f7f80c031114c96a2c49d1cba90bdbd41066e4ab0cef545b0ccdb94feac0da17"
 metafile = true
 
 [[files]]
