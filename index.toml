@@ -1,14 +1,6 @@
 hash-format = "sha256"
 
 [[files]]
-file = ".github/workflows/deploy.yml"
-hash = "da4ea013e96bc0216d9109aa740b0a0f0434959cac75ef8ba543da9cfb7e6c2e"
-
-[[files]]
-file = "README.md"
-hash = "113da76c0448bb0c40b569f51d4cea31abcaae07bf0cc60d3e4ed60ef2db0e30"
-
-[[files]]
 file = "config/NoChatReports/NCR-Client.json"
 hash = "09439e72c5caf4289ee24ba39167d63f6c7599fb01131bbc671c89535107c396"
 
@@ -19,10 +11,6 @@ hash = "bbc93e6b3cb7a917334cbbb3d1b0775a1cb3244ebc2075e4fa1fb7420e32cea7"
 [[files]]
 file = "config/NoChatReports/NCR-ServerWhitelist.json"
 hash = "fdf38fd061bb38e0389ffb008eb33f454f762e504080e8adf2ed5e3911554a8c"
-
-[[files]]
-file = "config/NoChatReports/README.md"
-hash = "c52b76ccad2bd1063a22c7f6bb9e7c5db6b00fb53a6fd605585972ee0e5fc01f"
 
 [[files]]
 file = "config/PlasmoVoice/config.json"
