@@ -3,11 +3,11 @@ filename = "youre-in-grave-danger-1.4.3.jar"
 side = "both"
 
 [download]
+url = "https://cdn.modrinth.com/data/HnD1GX6e/versions/DinjAR2c/youre-in-grave-danger-1.4.3.jar"
 hash-format = "sha1"
 hash = "fd660a1f7f29dce18d4ac8ec78e094b38709ad03"
-mode = "metadata:curseforge"
 
 [update]
-[update.curseforge]
-file-id = 3970353
-project-id = 544912
+[update.modrinth]
+mod-id = "HnD1GX6e"
+version = "DinjAR2c"

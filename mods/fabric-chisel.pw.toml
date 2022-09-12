@@ -1,13 +1,13 @@
-name = "Chisel Refabricated"
+name = "Fabricated Chisel"
 filename = "chisel-1.4.6+1.19.jar"
 side = "both"
 
 [download]
+url = "https://cdn.modrinth.com/data/4KWv7wbN/versions/1.4.6/chisel-1.4.6%2B1.19.jar"
 hash-format = "sha1"
 hash = "f224170456b2cf16c4d409a7ca58165d6aa79f6b"
-mode = "metadata:curseforge"
 
 [update]
-[update.curseforge]
-file-id = 3825308
-project-id = 551763
+[update.modrinth]
+mod-id = "4KWv7wbN"
+version = "Rf67OqtE"
