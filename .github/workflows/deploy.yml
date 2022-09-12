@@ -11,41 +11,96 @@ on:
       - main
 
 env:
+  GO_VERSION: ^1.19.1
+  PACKWIZ_VERSION: c7c2ca786bd050043dc36f5a35fbe7699a29adbc
   TO_VERSION: ${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.number) || github.ref_name }}
 
 jobs:
-  build:
-    name: Build
+  curseforge:
+    name: Generate CurseForge
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/setup-go@v3
+        with:
+          go-version: ${{ env.GO_VERSION }}
+      - name: Install Packwiz
+        run: go install github.com/packwiz/packwiz@${{ env.PACKWIZ_VERSION }}
       - uses: actions/checkout@v3
       - name: Cache Mods
         uses: actions/cache@v3
         with:
           path: ~/.cache/packwiz/cache
-          key: ${{ runner.os }}-${{ hashFiles('mods/*') }}
-      - uses: actions/setup-go@v3
-        with:
-          go-version: '^1.19.1'
+          key: cf-${{ hashFiles('mods/*') }}
       - name: Versioning
         run: sed -i "s/0.0.0-semantically-released.0/${TO_VERSION}/g" pack.toml
-      - name: Install Packwiz
-        run: go install github.com/packwiz/packwiz@latest
       - name: Generate Modrinth Pack
-        run: packwiz mr export -o "TemmiesOriginsClient-${TO_VERSION}.mrpack"
+        run: packwiz cf export -o "TemmiesOriginsClientCF-${TO_VERSION}.zip"
+      - run: zip -d TemmiesOriginsClientCF-*.zip "overrides/**/*" modlist.html
       - uses: actions/upload-artifact@v3
         with:
-          name: TemmiesOrigins
-          path: TemmiesOriginsClient-*.mrpack
+          name: CurseForge
+          path: TemmiesOriginsClientCF-*.zip
+          if-no-files-found: error
+  
+  modrinth:
+    name: Generate Modrinth
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-go@v3
+        with:
+          go-version: ${{ env.GO_VERSION }}
+      - name: Install Packwiz
+        run: go install github.com/packwiz/packwiz@${{ env.PACKWIZ_VERSION }}
+      - uses: actions/checkout@v3
+      - name: Cache Mods
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/packwiz/cache
+          key: mr-${{ hashFiles('mods/*') }}
+      - name: Versioning
+        run: sed -i "s/0.0.0-semantically-released.0/${TO_VERSION}/g" pack.toml
+      - name: Generate Modrinth Pack
+        run: packwiz mr export -o "TemmiesOriginsClientMR-${TO_VERSION}.mrpack"
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Modrinth
+          path: TemmiesOriginsClient*.mrpack
+          if-no-files-found: error
+  
+  credits:
+    name: Generate Credits
+    runs-on: ubuntu-latest
+    needs: [curseforge, modrinth]
+    steps:
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+      - uses: actions/download-artifact@v3
+      - uses: robinraju/release-downloader@v1.5
+        with: 
+          repository: "ModdingX/ModListCreator"
+          tag: "v4.0.3"
+          fileName: "ModListCreator-4.0.3-fatjar.jar"
+      - name: Generate Credits File
+        run: |
+          java -jar ModListCreator*.jar modlist Modrinth/TemmiesOriginsClientMR-*.mrpack --output credits/modrinth.md
+          java -jar ModListCreator*.jar modlist CurseForge/TemmiesOriginsClientCF-*.zip --output credits/curseforge.md --no-header
+          cat credits/modrinth.md credits/curseforge.md > credits/credits.md
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Credits
+          path: credits/credits.md
           if-no-files-found: error
 
   deploy:
     name: Deploy
     if: startsWith(github.event.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
-    needs: build
+    needs: [modrinth, credits]
     steps:
       - uses: actions/download-artifact@v3
+      - run: zip -ur Modrinth/TemmiesOriginsClientMR-*.mrpack Credits/credits.md
       - name: Changelog
         id: changelog
         uses: mikepenz/release-changelog-builder-action@v3.3.1
@@ -56,6 +111,6 @@ jobs:
       - name: Create Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: TemmiesOrigins/TemmiesOriginsClient-$TO_VERSION.mrpack
+          artifacts: Modrinth/TemmiesOriginsClient-*.mrpack
           body: ${{ steps.changelog.outputs.changelog }}
           token: ${{ secrets.GITHUB_TOKEN }}
