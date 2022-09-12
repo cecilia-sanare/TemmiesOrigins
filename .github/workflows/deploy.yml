@@ -1,11 +1,17 @@
-name: Deploy
+name: Validation
 
 on:
+  pull_request:
+    branches:
+      - main
   push:
     tags:
       - v*
     branches:
       - main
+
+env:
+  TO_VERSION: ${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.number) || github.ref_name }}
 
 jobs:
   build:
@@ -13,18 +19,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Cache Mods
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/packwiz/cache
+          key: ${{ runner.os }}-${{ hashFiles('mods/*') }}
       - uses: actions/setup-go@v3
         with:
-          go-version: '^1.19.1' # The Go version to download (if necessary) and use.
+          go-version: '^1.19.1'
       - name: Versioning
-        run: sed -i 's/0.0.0-semantically-released.0/${{ github.ref_name }}/g' pack.toml
-      - run: go install github.com/packwiz/packwiz@latest
-      - name: Generate Zip
-        run: packwiz cf export -o TemmiesOriginsClient-${{ github.ref_name }}.zip
+        run: sed -i "s/0.0.0-semantically-released.0/${TO_VERSION}/g" pack.toml
+      - name: Install Packwiz
+        run: go install github.com/packwiz/packwiz@latest
+      - name: Generate Modrinth Pack
+        run: packwiz mr export -o "TemmiesOriginsClient-${TO_VERSION}.mrpack"
       - uses: actions/upload-artifact@v3
         with:
           name: TemmiesOrigins
-          path: TemmiesOriginsClient-${{ github.ref_name }}.zip
+          path: TemmiesOriginsClient-*.mrpack
           if-no-files-found: error
 
   deploy:
@@ -44,16 +56,6 @@ jobs:
       - name: Create Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: TemmiesOrigins/TemmiesOriginsClient-${{ github.ref_name }}.zip
+          artifacts: TemmiesOrigins/TemmiesOriginsClient-$TO_VERSION.mrpack
           body: ${{ steps.changelog.outputs.changelog }}
           token: ${{ secrets.GITHUB_TOKEN }}
-      # TODO: Enable once approved
-      # - name: Upload to CurseForge
-      #   uses: henkelmax/upload-curseforge-modpack-action@v1.0.0
-      #   with:
-      #     api-token: ${{ secrets.CF_TOKEN }}
-      #     project-id: 674487
-      #     modpack-path: TemmiesOriginsClient-${{ github.ref_name }}.zip
-      #     game-version: "1.19.2"
-      #     display-name: "TemmiesOriginsClient-${{ github.ref_name }}"
-      #     release-type: "release"
