@@ -1,6 +1,7 @@
 .github/
-/*.md
+*.md
 /*.zip
 /*.mrpack
 /*.jar
 /credits
+/scripts

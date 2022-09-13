@@ -1,0 +1,22 @@
+name: Upload to Modrinth
+
+on:
+  release:
+    types: [published, edited]
+
+jobs:
+  upload:
+    name: Upload
+    runs-on: ubuntu-latest
+    steps:
+      - uses: robinraju/release-downloader@v1.5
+        with: 
+          tag: ${{ github.ref_name }}
+          fileName: "*.mrpack"
+      - uses: Kir-Antipov/mc-publish@v3.2
+        with:
+          modrinth-id: P6l6LWR2
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+          files-primary: "*.mrpack"
+          loaders: fabric
+          game-versions: "1.19.2"

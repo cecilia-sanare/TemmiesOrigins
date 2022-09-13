@@ -1,21 +1,17 @@
 import 'dotenv/config';
 import path from 'path';
-import { fileURLToPath } from 'url';
 import fs from 'fs/promises';
 import toml from 'toml';
 import * as CF from './services/curseforge.mjs';
 import * as MR from './services/modrinth.mjs';
 import dedent from 'dedent';
-
-const DIRNAME = path.dirname(fileURLToPath(import.meta.url));
-const MODS = path.join(DIRNAME, '../mods');
-const CREDITS_FILE = path.join(DIRNAME, '../credits.md');
+import { DIRECTORIES } from './constants/directories.mjs';
 
 (async () => {
     try {
-        const modConfigs = await fs.readdir(MODS).then(async (mods) => {
+        const modConfigs = await fs.readdir(DIRECTORIES.MODS).then(async (mods) => {
             return await Promise.all(mods.map(async (mod) => {
-                const content = await fs.readFile(path.join(MODS, mod), 'utf-8');
+                const content = await fs.readFile(path.join(DIRECTORIES.MODS, mod), 'utf-8');
                 return toml.parse(content);
             }));
         });
@@ -47,7 +43,7 @@ const CREDITS_FILE = path.join(DIRNAME, '../credits.md');
             MR.getProjectTeams(
                 mrModInfos.map((mod) => mod.team)
             ),
-            fs.readFile(path.join(DIRNAME, '../modrinth.md'), 'utf-8')
+            fs.readFile(path.join(DIRECTORIES.DIRNAME, '../modrinth.md'), 'utf-8')
         ]);
 
         const modInfos = mrModInfos.map((modInfo) => {
@@ -77,7 +73,7 @@ const CREDITS_FILE = path.join(DIRNAME, '../credits.md');
         `;
     
         await Promise.all([
-            fs.writeFile(CREDITS_FILE, dedent`
+            fs.writeFile(DIRECTORIES.CREDITS_FILE, dedent`
                 ## Temmie's Origins (${process.env.GITHUB_REF_NAME || 'local'})
     
                 ${markdown}
