@@ -31,4 +31,4 @@ _**Origins exploration modpack focused around new biomes, bosses, and more!**_
 _This modpack was made for a group of friends looking for a fun Vanilla+ Minecraft experience._ <br/>
 _As such changes may seem a bit more all over the place~_
 
-_Want to setup a server? Checkout our [GitHub](https://github.com/cecilia-sanare/TemmiesOrigins#setting-up-a-server-docker-compose) for instructions!_
+_Want to setup a server? Checkout our [GitHub](https://github.com/cecilia-sanare/TemmiesOrigins#setting-up-a-server) for instructions!_
