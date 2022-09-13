@@ -2,7 +2,7 @@ name: Upload to Modrinth
 
 on:
   release:
-    types: [published, edited]
+    types: [published]
 
 jobs:
   upload:
