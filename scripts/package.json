@@ -1,0 +1,18 @@
+{
+  "name": "scripts",
+  "version": "1.0.0",
+  "author": "Ceci",
+  "private": true,
+  "scripts": {
+    "credits": "node -r dotenv/config credits.mjs"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "dedent": "^0.7.0",
+    "node-fetch": "^3.2.10",
+    "toml": "^3.0.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.2"
+  }
+}
