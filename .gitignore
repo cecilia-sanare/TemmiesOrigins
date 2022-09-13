@@ -1,4 +1,6 @@
 /*.zip
 /*.mrpack
 /*.jar
-/credits
+node_modules/
+.env
+credits.md
