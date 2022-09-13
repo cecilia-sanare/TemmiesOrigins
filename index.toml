@@ -142,7 +142,7 @@ hash = "4026f2d6ebe721793c1fd2d2a0d6a352fe274b6589cbddc1f93bf1ac140b85ac"
 
 [[files]]
 file = "config/byg/biomepedia.json5"
-hash = "b866ba2a574783ac1cbccd9f97a15438c436ed66d6bc58998283d5db2220738a"
+hash = "d9b7c4d1b5445c9b34618918f94f190e2f9dd5312ae1e241e11ac796edf7e31c"
 
 [[files]]
 file = "config/byg/client/biomepedia_inventory.json5"
@@ -377,8 +377,12 @@ file = "config/inventoryessentials.toml"
 hash = "766c28ea8ef5bb673974bd34c8fd84e81e557eab978ff8cf8a06a88e2cac3108"
 
 [[files]]
+file = "config/inventoryprofilesnext/integrationHints/exampleIntegrationHints.json"
+hash = "ca413dea02cce69c69dccdc525fb0ec013236876eff2d142772c68db3d772d3a"
+
+[[files]]
 file = "config/inventoryprofilesnext/inventoryprofiles.json"
-hash = "b5cd136a559edf7cda34ad8549695004c6602d09ef70b18ec0839ab9c147a7f2"
+hash = "435ea5515b82e2d8cbd4155149a7c5b27105b49cf8358b841caeca1371a74803"
 
 [[files]]
 file = "config/iris.properties"
