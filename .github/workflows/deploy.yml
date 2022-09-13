@@ -79,13 +79,15 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           commitMode: true
-      - name: Create Release
-        uses: ncipollo/release-action@v1
+      - uses: Kir-Antipov/mc-publish@v3.2
         with:
-          artifacts: Modrinth/TemmiesOriginsClient-*.mrpack
-          body: ${{ steps.changelog.outputs.changelog }}
-          token: ${{ secrets.GITHUB_TOKEN }}
-          allowUpdates: true
-          artifactErrorsFailBuild: true
-          removeArtifacts: true
-          replacesArtifacts: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+          modrinth-id: P6l6LWR2
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+          
+          files-primary: "Modrinth/TemmiesOriginsClient-*.mrpack"
+          game-versions: "1.19.2"
+          loaders: fabric
+
+          changelog: ${{ steps.changelog.outputs.changelog }}

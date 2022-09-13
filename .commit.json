@@ -1,0 +1,29 @@
+{
+    "categories": [
+      {
+        "title": "## 🚀 Features",
+        "labels": ["feature"]
+      },
+      {
+        "title": "## 🐛 Fixes",
+        "labels": ["fix"]
+      }
+    ],
+    "ignore_labels": [
+      "chore",
+      "ci"
+    ],
+    "sort": {
+      "order": "ASC",
+      "on_property": "mergedAt"
+    },
+    "template": "${{CHANGELOG}}\n\n<details>\n<summary>Uncategorized</summary>\n\n${{UNCATEGORIZED}}\n</details>",
+    "empty_template": "- no changes",
+    "label_extractor": [
+      {
+        "pattern": "([^:]+): (.+)",
+        "target": "$1",
+        "flags": "gu"
+      }
+    ]
+}

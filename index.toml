@@ -377,6 +377,10 @@ file = "config/inventoryessentials.toml"
 hash = "766c28ea8ef5bb673974bd34c8fd84e81e557eab978ff8cf8a06a88e2cac3108"
 
 [[files]]
+file = "config/inventoryprofilesnext/inventoryprofiles.json"
+hash = "b5cd136a559edf7cda34ad8549695004c6602d09ef70b18ec0839ab9c147a7f2"
+
+[[files]]
 file = "config/iris.properties"
 hash = "e8ebd2bc90d70fbc4e61acca2f4d49b2ceff2804f3b48d739c6f6d977a5c8783"
 
@@ -731,6 +735,11 @@ hash = "60a510b286618599b75dd8f3e1c7251384d9a9e85c6d808824a997b01d4454ca"
 metafile = true
 
 [[files]]
+file = "mods/fabric-language-kotlin.pw.toml"
+hash = "76f23e3c7d290c587085b22f59e06160a38593d73859cbb4a4738d1fa2fade4d"
+metafile = true
+
+[[files]]
 file = "mods/fastload.pw.toml"
 hash = "ac0a425f01b57603d143e65eebba8b53078474c61f8f0a9a35ab2bbd7ed3a931"
 metafile = true
@@ -758,6 +767,11 @@ metafile = true
 [[files]]
 file = "mods/inventory-essentials.pw.toml"
 hash = "8de7f74e3a6d02adb946023afc2810c74dbcb14c4c1fda96671f2726cf492bf8"
+metafile = true
+
+[[files]]
+file = "mods/inventory-profiles-next.pw.toml"
+hash = "3f196a5ba67e18f52901014dd413376944faf11cbf2f35722a08ac6195dd363d"
 metafile = true
 
 [[files]]
@@ -888,11 +902,6 @@ metafile = true
 [[files]]
 file = "mods/roughly-enough-professions-rep.pw.toml"
 hash = "12910e7c18acdec141ea11f19bf297169cd0fbd58c709e4868cc32cbe7ef1dab"
-metafile = true
-
-[[files]]
-file = "mods/roundaround-inventory-management.pw.toml"
-hash = "e11fb36b9cc23adfaf2321753a6d62e185211c71321e467de9332f3a0f5cc29c"
 metafile = true
 
 [[files]]
