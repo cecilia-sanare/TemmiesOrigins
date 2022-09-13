@@ -702,6 +702,11 @@ hash = "c3abf99ceae59c52190eff3132d949073ef39594ce38a0e90a98eca835a0efc4"
 metafile = true
 
 [[files]]
+file = "mods/ironchests.pw.toml"
+hash = "f073871d4ac1fe2c085659aa5d7997c68247f7274f5efa1beda95c9d409e1dc8"
+metafile = true
+
+[[files]]
 file = "mods/journeymap.pw.toml"
 hash = "dadcde5442ffdd9755166893fbf6985409908d469a557788301523c16c6e6ebc"
 metafile = true
