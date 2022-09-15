@@ -1,0 +1,8 @@
+name = "Temmie's Origins"
+filename = "temmies-origins-0.1.0.jar"
+side = "both"
+
+[download]
+url = "https://github.com/temmies-origins/temmies-origins-mod/releases/download/v0.1.0/temmies_origins-0.1.0.jar"
+hash-format = "sha256"
+hash = "3500a84b71f3c146eee66503dcbd03dfc605ad5fe2bc09c5a451651c2111f1c1"

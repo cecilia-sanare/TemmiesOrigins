@@ -377,10 +377,6 @@ file = "config/inventoryessentials.toml"
 hash = "766c28ea8ef5bb673974bd34c8fd84e81e557eab978ff8cf8a06a88e2cac3108"
 
 [[files]]
-file = "config/inventoryprofilesnext/integrationHints/exampleIntegrationHints.json"
-hash = "ca413dea02cce69c69dccdc525fb0ec013236876eff2d142772c68db3d772d3a"
-
-[[files]]
 file = "config/inventoryprofilesnext/inventoryprofiles.json"
 hash = "435ea5515b82e2d8cbd4155149a7c5b27105b49cf8358b841caeca1371a74803"
 
@@ -482,7 +478,7 @@ hash = "3263603879f1dfb7e2c5c3b173c37e20ad674d38ca3281c9eb7235ba75e29032"
 
 [[files]]
 file = "config/origins_server.json"
-hash = "f4c19cff2b8e109f786d66b424d8844d7464d60e304f39b17ab456ae11a3c3b7"
+hash = "b9efdab8174a0dbcd136f7d02022877b62c34a89ff0152d9c7c6ed26aaa8a696"
 
 [[files]]
 file = "config/pal.properties"
@@ -859,11 +855,6 @@ hash = "d5b2f9d8624b485a9730cc7ad5d73349e969231f40bc4afbc64a48ebff9b39c0"
 metafile = true
 
 [[files]]
-file = "mods/origins-plus-plus.pw.toml"
-hash = "6beb3f79213e10156f33394f272bd46b5e435da270b56df989e35a516a1b9087"
-metafile = true
-
-[[files]]
 file = "mods/origins.pw.toml"
 hash = "553207c460a750a9b7777eec24b54cfb748c964064714b7b0ed1691953c01b49"
 metafile = true
@@ -936,6 +927,11 @@ metafile = true
 [[files]]
 file = "mods/styledplayerlist.pw.toml"
 hash = "1068f631723fedc967171a1b52c02dd9560601d303fe9a1f28717471d8aa7e68"
+metafile = true
+
+[[files]]
+file = "mods/temmies-origins.pw.toml"
+hash = "5701fd51f6385b01c8c3cf51efd31ce07d5c14c1965006e409a77a3f1bf563a2"
 metafile = true
 
 [[files]]

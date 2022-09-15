@@ -21,8 +21,8 @@ import { DIRECTORIES } from './constants/directories.mjs';
                 mods.curseforge.push(modConfig.update.curseforge['project-id']);
             } else if (modConfig.update && modConfig.update.modrinth) {
                 mods.modrinth.push(modConfig.update.modrinth['mod-id']);
-            } else {
-                console.warn(`Unknown mod! ${modConfig}`);
+            } else if (!modConfig.filename.includes('temmies-origins')) {
+                console.warn(`Unknown mod! ${JSON.stringify(modConfig)}`);
             }
     
             return mods;
