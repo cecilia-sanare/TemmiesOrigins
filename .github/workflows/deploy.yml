@@ -86,6 +86,7 @@ jobs:
           modrinth-id: P6l6LWR2
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
           
+          version-type: alpha
           files-primary: "Modrinth/TemmiesOriginsClient-*.mrpack"
           game-versions: "1.19.2"
           loaders: fabric
