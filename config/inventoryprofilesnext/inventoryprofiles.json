@@ -1,36 +1,20 @@
 {
     "ModSettings": {
-        "highlight_foused_items": {
-            "value": false
-        },
-        "enable_profiles": {
-            "value": false
-        },
-        "enable_lock_slots": {
-            "value": false
-        },
+        "highlight_foused_items": false,
+        "highlight_foused_items_foreground": false,
+        "enable_profiles": false,
+        "enable_lock_slots": false,
+        "enable_lock_slots_per_server": false,
+        "enable_updates_check": false,
+        "highlight_clicking_slot": false,
+        "move_all_at_cursor": false,
+        "ignore_durability": false,
         "first_run": false
     },
     "GuiSettings": {
-        "enable_inventory_editor_button": {
-            "value": false
-        },
-        "enable_inventory_settings_button": {
-            "value": false
-        },
-        "enable_profiles_ui": {
-            "value": false
-        },
-        "show_continuous_crafting_checkbox": {
-            "value": false
-        }
-    },
-    "AutoRefillSettings": {
-        "refill_armor": {
-            "value": false
-        },
-        "refill_before_tool_break": {
-            "value": false
-        }
+        "enable_profiles_ui": false,
+        "enable_profiles_announcement": false,
+        "enable_inventory_editor_button": false,
+        "show_continuous_crafting_checkbox": false
     }
 }
