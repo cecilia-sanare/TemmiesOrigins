@@ -27,7 +27,7 @@ services:
       MEMORY: 8G
       TYPE: FABRIC
       VERSION: 1.19.2
-      PACKWIZ_URL: https://raw.githubusercontent.com/temmies-origins/temmies-origins-modpack/<version>/pack.toml
+      PACKWIZ_URL: https://raw.githubusercontent.com/rain-cafe-mc/temmies-origins-modpack/<version>/pack.toml
     volumes:
       - /etc/minecraft/origins:/data
 ```
@@ -39,7 +39,7 @@ $ docker run -dt --name minecraft-origins \
   -p 25565:25565/tcp -p 25565:25565/udp --expose 25565 \
   -e GH_TOKEN="<GITHUB_TOKEN>" \
   -e EULA="TRUE" -e MEMORY="8G" -e TYPE="FABRIC" -e VERSION="1.19.2" \
-  -e PACKWIZ_URL="https://raw.githubusercontent.com/temmies-origins/temmies-origins-modpack/<version>/pack.toml" \
+  -e PACKWIZ_URL="https://raw.githubusercontent.com/rain-cafe-mc/temmies-origins-modpack/<version>/pack.toml" \
   -v "/etc/minecraft/origins:/data" \
   --restart="unless-stopped" \
   itzg/minecraft-server:java17-alpine

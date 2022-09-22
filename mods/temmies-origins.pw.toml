@@ -3,6 +3,6 @@ filename = "temmies_origins-0.1.2.jar"
 side = "both"
 
 [download]
-url = "https://github.com/temmies-origins/temmies-origins-mod/releases/download/v0.1.2/temmies_origins-0.1.2.jar"
+url = "https://github.com/rain-cafe-mc/temmies-origins-mod/releases/download/v0.1.2/temmies_origins-0.1.2.jar"
 hash-format = "sha1"
 hash = "01239205eab977a66f0036f03d5a8cf4eeb20b84"
