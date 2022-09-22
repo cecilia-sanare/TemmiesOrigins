@@ -4,7 +4,7 @@
 
 #### Docker Compose
 
-This is an _extremely_ simple example, for a more complex example feel free to check out my [SelfHosted](https://github.com/cecilia-sanare/SelfHosted) repo.
+This is an _extremely_ simple example, for a more complex example feel free to check out our [servers](https://github.com/rain-cafe-mc/servers) repo.
 
 ```yml
 version: "3"
